@@ -38,6 +38,18 @@ Usage:
 # endif
 #endif
 
+#ifdef _CYGWIN_WORKAROUND
+# ifndef strcasecmp
+#  define strcasecmp strcmp
+# endif
+# ifndef strncasecmp
+#  define strncasecmp strncmp
+# endif
+// # ifndef strdup
+// #  define strdup _strdup
+// # endif
+#endif
+
 
 namespace trimesh {
 

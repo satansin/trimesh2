@@ -59,6 +59,8 @@ else
 	endif
 endif
 
+UNAME := Linux64
+
 #
 # Other variable definitions
 #

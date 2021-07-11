@@ -106,6 +106,12 @@ Input/output:
 #include <stdexcept>
 #include <iostream>
 
+#ifdef _CYGWIN_WORKAROUND
+# ifndef M_PI
+#  define M_PI 3.14159265358979323846  /* pi */
+# endif
+#endif
+
 
 #define inline TRIMESH_INLINE
 
