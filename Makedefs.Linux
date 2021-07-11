@@ -1,5 +1,6 @@
 CC = gcc
-CXX = g++
+#CXX = g++
+CXX = g++ -std=c++17
 #CC = clang
 #CXX = clang++
 #CXX = clang++ -stdlib=libc++
