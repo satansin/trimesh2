@@ -1,5 +1,9 @@
-CC = gcc
-CXX = g++
+ifndef CC
+	CC = gcc
+endif
+ifndef CXX
+	CXX = g++
+endif
 #CC = clang
 #CXX = clang++
 #CXX = clang++ -stdlib=libc++
