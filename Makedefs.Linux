@@ -1,6 +1,5 @@
 CC = gcc
-#CXX = g++
-CXX = g++ -std=c++17
+CXX = g++
 #CC = clang
 #CXX = clang++
 #CXX = clang++ -stdlib=libc++
@@ -27,7 +26,11 @@ ifeq (,$(shell $(CXX) --version | grep clang))
 	OPENMPOPTS = -fopenmp
 endif
 
-COPTS += -D_CYGWIN_WORKAROUND
+## if cygwin is used, there are some missing functions causing the compilation to fail
+## using below flag to solve the issue
+ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
+	COPTS += -D_CYGWIN_WORKAROUND
+endif
 
 CXXOPTS = $(COPTS)
 CFLAGS = $(ARCHOPTS) $(OPENMPOPTS) $(INCLUDES) $(DEFINES) $(COPTS)

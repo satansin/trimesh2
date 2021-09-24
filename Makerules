@@ -59,6 +59,7 @@ else
 	endif
 endif
 
+## platform fixed to Linux64, otherwise cygwin will generate the win32 libraries
 UNAME := Linux64
 
 #
