@@ -14,7 +14,8 @@ adaptive outlier rejection, and symmetric point-to-plane minimization.
 using namespace std;
 
 
-#define MAX_ITERS 150
+// #define MAX_ITERS 150 // original
+#define MAX_ITERS 10
 #define TERMINATION_ITER_THRESH 25
 #define FINAL_ITERS 2
 #define MIN_PAIRS 10
@@ -430,7 +431,7 @@ static float ICP_iter(TriMesh *mesh1, TriMesh *mesh2,
 	npairs = pairs.size();
 	if (npairs < MIN_PAIRS) {
 		if (verbose)
-			dprintf("Too few point pairs.\n");
+			dprintf("Too few (%d) point pairs.\n", npairs);
 		return -1.0f;
 	}
 	cdfincr *= (float) npairs / desired_pairs;
